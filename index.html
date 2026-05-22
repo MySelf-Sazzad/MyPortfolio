@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sazzad M Rahman — Software Engineer</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Sazzad M Rahman - Software Engineer & Web Developer Portfolio. Expert in HTML, CSS, JavaScript, PHP, Node.js. Based in Dhaka, Bangladesh.">
+    <meta name="keywords" content="Sazzad M Rahman, Software Engineer, Web Developer, Portfolio, Full Stack Developer, Bangladesh, Dhaka, UITS">
+    <meta name="author" content="Sazzad M Rahman">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sazzad M Rahman - Software Engineer">
+    <meta property="og:description" content="A passionate Computer Science student and software engineer crafting elegant digital experiences.">
+    <meta property="og:image" content="images/MYP-Main.jpeg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sazzad M Rahman - Software Engineer">
+    <meta name="twitter:description" content="A passionate Computer Science student and software engineer crafting elegant digital experiences.">
+    <meta name="twitter:image" content="images/MYP-Main.jpeg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-text">Initializing<span class="dots"></span></div>
+            <div class="preloader-bar">
+                <div class="preloader-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-outer" id="cursorOuter"></div>
+    <div class="cursor-inner" id="cursorInner"></div>
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- PARTICLES CANVAS -->
+    <canvas id="particlesCanvas"></canvas>
+
+    <!-- FLOATING CODE LINES -->
+    <div class="code-lines" id="codeLines"></div>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>Sazzad<span class="logo-slash">/</span><span class="logo-bracket">&gt;</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#blogs" class="nav-link" data-section="blogs">Blogs</a></li>
+                <li><a href="#hobbies" class="nav-link" data-section="hobbies">Hobbies</a></li>
+                <li><a href="#social" class="nav-link" data-section="social">Social</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-grid-overlay"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge reveal">
+                    <span class="badge-dot"></span>
+                    Available for opportunities
+                </div>
+                <h1 class="hero-title reveal reveal-delay-1">
+                    Hi, I'm <span class="text-gradient">Sazzad M Rahman</span>
+                </h1>
+                <div class="hero-typing reveal reveal-delay-2">
+                    <span class="typing-prefix">I'm a </span>
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="typing-cursor">|</span>
+                </div>
+                <p class="hero-description reveal reveal-delay-3">
+                    A passionate Computer Science student and software engineer crafting 
+                    elegant digital experiences with clean code and modern technologies. 
+                </p>
+                <div class="hero-buttons reveal reveal-delay-4">
+                    <a href="#contact" class="btn btn-primary magnetic-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Hire Me
+                    </a>
+                   <a href="Sazzad_CV.pdf" class="btn btn-secondary magnetic-btn" download>
+                   <i class="fas fa-download"></i>
+                    Download CV
+                </a>
+                </div>
+                <div class="hero-social reveal reveal-delay-5">
+                    <a href="https://facebook.com/nix.return.12" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://github.com/MySelf-Sazzad" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/_sazzad_m_rahman_/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@nixgaming9728" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="hero-image reveal reveal-delay-3">
+                <div class="image-frame">
+                    <div class="image-frame-border"></div>
+                    <img src="images/MYP-Main.jpeg" alt="Sazzad M Rahman" class="profile-img">
+                    <div class="image-glow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator reveal reveal-delay-5">
+            <span>Scroll Down</span>
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">About <span class="text-gradient">Me</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-content reveal reveal-left">
+                    <h3 class="about-subtitle">Web developer & Software Engineer</h3>
+                    <p class="about-text">
+                        I'm Sazzad M Rahman, a dedicated Computer Science student with a deep passion 
+                        for technology, software development, and creating intuitive user experiences. 
+                        My journey in tech began with curiosity and has evolved into a relentless pursuit 
+                        of building meaningful digital solutions.
+                    </p>
+                    <p class="about-text">
+                        I specialize in frontend and backend web development, with a keen eye for 
+                        UI/UX design. From crafting responsive websites to building full-stack 
+                        applications, I thrive on turning complex problems into elegant, 
+                        user-friendly solutions. I believe in writing clean, maintainable code 
+                        that makes a real impact.
+                    </p>
+                    <p class="about-text">
+                        Beyond the classroom, I'm constantly learning new technologies, contributing 
+                        to projects, and exploring the ever-evolving landscape of software engineering. 
+                        My goal is to become a world-class developer who bridges the gap between 
+                        vision and technology.
+                    </p>
+                    <div class="about-info-grid">
+                        <div class="about-info-item">
+                            <span class="info-label">Name</span>
+                            <span class="info-value">Sazzad M Rahman</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Education</span>
+                            <span class="info-value">B.Sc. in Computer Science at UITS</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Focus</span>
+                            <span class="info-value">Full Stack Development</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Location</span>
+                            <span class="info-value">Dhaka, Bangladesh</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-right reveal reveal-right">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div class="stat-number" data-target="5">0</div>
+                            <div class="stat-label">Projects Done</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-code"></i></div>
+                            <div class="stat-number" data-target="10">0</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+                            <div class="stat-number" data-target="3">0</div>
+                            <div class="stat-label">Certifications</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-users"></i></div>
+                            <div class="stat-number" data-target="2">0</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item reveal">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2023</span>
+                                <h4>Started CSE Journey</h4>
+                                <p>Enrolled in Computer Science & Engineering, beginning the foundation of my tech career.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item reveal">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2024</span>
+                                <h4>Learned Web Development</h4>
+                                <p>Continuously learning HTML, CSS, JavaScript, PHP, and started building real projects.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item reveal">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2026</span>
+                                <h4>Pursuing Software Engineering</h4>
+                                <p>Expanding into advanced technologies, seeking professional opportunities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- SKILLS SECTION -->
+<section class="section skills" id="skills">
+    <div class="container">
+        <div class="section-header reveal">
+            <h2 class="section-title">My <span class="text-gradient">Skills</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="skills-categories">
+            <div class="skill-category reveal reveal-up">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Frontend Development</h3>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">HTML5</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">CSS3</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category reveal reveal-up">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-server"></i></div>
+                    <h3>Backend Development</h3>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">PHP</span>
+                            <span class="skill-percent">66%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="66"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">MySQL</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Node.js</span>
+                            <span class="skill-percent">72%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="72"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category reveal reveal-up">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Design</h3>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Figma</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Canva</span>
+                            <span class="skill-percent">86%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="86"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">UI/UX Design</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category reveal reveal-up">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Developer Tools</h3>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">VS Code</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">GitHub</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Git</span>
+                            <span class="skill-percent">67%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="67"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">XAMPP</span>
+                            <span class="skill-percent">52%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="52"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="floating-tech-icons">
+            <span class="float-icon" style="--delay: 0s; --x: 5%; --y: 20%;"><i class="fab fa-html5"></i></span>
+            <span class="float-icon" style="--delay: 1s; --x: 90%; --y: 15%;"><i class="fab fa-css3-alt"></i></span>
+            <span class="float-icon" style="--delay: 2s; --x: 10%; --y: 70%;"><i class="fab fa-js-square"></i></span>
+            <span class="float-icon" style="--delay: 0.5s; --x: 85%; --y: 65%;"><i class="fab fa-php"></i></span>
+            <span class="float-icon" style="--delay: 1.5s; --x: 50%; --y: 80%;"><i class="fab fa-node-js"></i></span>
+            <span class="float-icon" style="--delay: 2.5s; --x: 70%; --y: 30%;"><i class="fab fa-figma"></i></span>
+            <span class="float-icon" style="--delay: 3s; --x: 25%; --y: 45%;"><i class="fab fa-github"></i></span>
+        </div>
+    </div>
+</section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">My <span class="text-gradient">Projects</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="project-filters reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                <button class="filter-btn" data-filter="university">University Projects</button>
+            </div>
+            <div class="project-grid">
+                <div class="project-card reveal reveal-up" data-category="fullstack">
+                    <div class="project-image">
+                        <img src="images/EMW-1.jpeg" alt="E-Commerce Platform">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A full-featured online store with product management, cart system, and secure checkout.</p>
+                        <div class="project-tech">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal reveal-up" data-category="web">
+                    <div class="project-image">
+                        <img src="images/WEB-2.jpeg" alt="Portfolio Website">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Portfolio Website</h3>
+                        <p>A modern, animated personal portfolio with futuristic design and smooth interactions.</p>
+                        <div class="project-tech">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal reveal-up" data-category="fullstack">
+                    <div class="project-image">
+                        <img src="images/WEB-1.jpeg" alt="Blood Management System">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Blood Management System</h3>
+                        <p>(Ami Donor). A Blood management platform designed to help people find blood donors quickly during emergency situations, making the blood donation and management process faster, easier, and more accessible.</p>
+                        <div class="project-tech">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span><span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOGS SECTION -->
+    <section class="section blogs" id="blogs">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Latest <span class="text-gradient">Blogs</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="blog-grid blog-grid-2">
+                <article class="blog-card reveal reveal-up" onclick="openProjectModal()">
+                    <div class="blog-image">
+                        <img src="images/BP-1.png" alt="Development">
+                        <span class="blog-category">Development</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-code"></i> My Works</span>
+                            <span><i class="fas fa-arrow-right"></i> View Details</span>
+                        </div>
+                        <h3>My Development Projects</h3>
+                        <p>Explore all the projects I have developed — E-Commerce, Portfolio, Blood Management System and more with details and screenshots.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card reveal reveal-up" onclick="openJourneyModal()">
+                    <div class="blog-image">
+                        <img src="images/MJ-1.png" alt="My Journey">
+                        <span class="blog-category">My Journey</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-road"></i> My Path</span>
+                            <span><i class="fas fa-arrow-right"></i> View Details</span>
+                        </div>
+                        <h3>My Journey as a CSC Student</h3>
+                        <p>From starting my CSC journey at UITS to building real-world projects — the complete story of my growth and learning.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECT DETAILS MODAL -->
+    <div class="detail-modal" id="projectModal">
+        <div class="detail-modal-overlay" onclick="closeModal('projectModal')"></div>
+        <div class="detail-modal-content">
+            <button class="detail-modal-close" onclick="closeModal('projectModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="detail-modal-header">
+                <h2>My <span class="text-gradient">Development Projects</span></h2>
+                <p>All the projects I have developed with details and technologies used.</p>
+            </div>
+            <div class="detail-modal-body">
+                <div class="detail-project-item">
+                    <div class="detail-project-image">
+                        <img src="images/EMW-1.jpeg" alt="E-Commerce Platform">
+                    </div>
+                    <div class="detail-project-info">
+                        <span class="detail-project-tag">Full Stack</span>
+                        <h3>E-Commerce Platform</h3>
+                        <p>A full-featured online store with complete product management system, shopping cart functionality, user authentication, and secure checkout process. Users can browse products, add to cart, manage quantities, and complete purchases securely.</p>
+                        <div class="detail-project-tech">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PHP</span><span>MySQL</span>
+                        </div>
+                        <div class="detail-project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Product listing with search and filter</li>
+                                <li>Shopping cart with quantity management</li>
+                                <li>User registration and login system</li>
+                                <li>Secure checkout with payment integration</li>
+                                <li>Admin panel for product management</li>
+                                <li>Order tracking system</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-project-item detail-project-reverse">
+                    <div class="detail-project-image">
+                        <img src="images/WEB-2.jpeg" alt="Portfolio Website">
+                    </div>
+                    <div class="detail-project-info">
+                        <span class="detail-project-tag">Web Development</span>
+                        <h3>Portfolio Website</h3>
+                        <p>A modern, animated personal portfolio website with futuristic design, smooth scroll interactions, particle effects, custom cursor, typing animation, and fully responsive layout. Built with pure HTML, CSS, and JavaScript without any framework.</p>
+                        <div class="detail-project-tech">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+                        </div>
+                        <div class="detail-project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Futuristic dark theme with neon accents</li>
+                                <li>Particle animation background</li>
+                                <li>Custom cursor with hover effects</li>
+                                <li>Typing text animation</li>
+                                <li>Scroll reveal animations</li>
+                                <li>Fully responsive on all devices</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-project-item">
+                    <div class="detail-project-image">
+                        <img src="images/WEB-1.jpeg" alt="Blood Management System">
+                    </div>
+                    <div class="detail-project-info">
+                        <span class="detail-project-tag">Full Stack</span>
+                        <h3>Blood Management System (Ami Donor)</h3>
+                        <p>A blood management platform designed to help people find blood donors quickly during emergency situations. The system makes the blood donation and management process faster, easier, and more accessible for everyone in need.</p>
+                        <div class="detail-project-tech">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span><span>MySQL</span>
+                        </div>
+                        <div class="detail-project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Donor registration and profile management</li>
+                                <li>Blood group based search and filtering</li>
+                                <li>Emergency blood request system</li>
+                                <li>Location-based donor finding</li>
+                                <li>Donation history tracking</li>
+                                <li>Admin dashboard for management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JOURNEY DETAILS MODAL -->
+    <div class="detail-modal" id="journeyModal">
+        <div class="detail-modal-overlay" onclick="closeModal('journeyModal')"></div>
+        <div class="detail-modal-content">
+            <button class="detail-modal-close" onclick="closeModal('journeyModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="detail-modal-header">
+                <h2>My <span class="text-gradient">Journey</span></h2>
+                <p>The complete story of my growth as a Computer Science student and developer.</p>
+            </div>
+            <div class="detail-modal-body">
+                <div class="journey-hero">
+                    <div class="journey-hero-image">
+                        <img src="images/MP-1.png" alt="Sazzad M Rahman">
+                    </div>
+                    <div class="journey-hero-info">
+                        <h3>Sazzad M Rahman</h3>
+                        <p>Computer Science Student | Software Engineer | Web Developer</p>
+                        <p>Currently pursuing B.Sc. in Computer Science at University of Information Technology and Sciences (UITS), Dhaka, Bangladesh. Passionate about building meaningful digital solutions and constantly learning new technologies.</p>
+                    </div>
+                </div>
+
+                <div class="journey-section">
+                    <div class="journey-section-image">
+                        <img src="images/University.png" alt="UITS">
+                    </div>
+                    <div class="journey-section-info">
+                        <span class="detail-project-tag">Education</span>
+                        <h3>University of Information Technology and Sciences (UITS)</h3>
+                        <p>Currently studying B.Sc. in Computer Science & Engineering at UITS, one of the prominent IT universities in Bangladesh. Here I am building my foundation in computer science, learning programming, data structures, algorithms, software engineering, and web development.</p>
+                        <div class="journey-highlights">
+                            <div class="journey-highlight-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>B.Sc. in CSE</span>
+                            </div>
+                            <div class="journey-highlight-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2022 - Present</span>
+                            </div>
+                            <div class="journey-highlight-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Dhaka, Bangladesh</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-timeline-section">
+                    <h3 class="journey-timeline-title">My Learning Path</h3>
+                    
+                    <div class="journey-timeline-item">
+                        <div class="journey-timeline-dot"></div>
+                        <div class="journey-timeline-content">
+                            <span class="journey-timeline-year">2023</span>
+                            <h4>The Beginning — Starting CSE Journey</h4>
+                            <p>I enrolled at UITS in the Computer Science & Engineering program. This was the turning point of my life. I had always been curious about technology, but now I was going to learn it properly. I started with the basics — programming fundamentals, C programming, and introductory computer science courses. It was challenging but exciting at the same time. I spent countless hours understanding logic, algorithms, and how computers actually work.</p>
+                            <div class="journey-timeline-image">
+                                <img src="images/CSE-J.png" alt="2023 Journey">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="journey-timeline-item">
+                        <div class="journey-timeline-dot"></div>
+                        <div class="journey-timeline-content">
+                            <span class="journey-timeline-year">2024</span>
+                            <h4>Learning Web Development</h4>
+                            <p>This was the year I discovered my passion for web development. I started learning HTML, CSS, and JavaScript. I spent months practicing, building small projects, and understanding how the web works. Then I moved to backend development with PHP and MySQL. I also started using GitHub for version control and VS Code as my primary IDE. By the end of 2023, I could build complete websites with both frontend and backend.</p>
+                            <div class="journey-timeline-image">
+                                <img src="images/MYJ-2.png" alt="2024 Journey">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="journey-timeline-item">
+                        <div class="journey-timeline-dot"></div>
+                        <div class="journey-timeline-content">
+                            <span class="journey-timeline-year">2026</span>
+                            <h4>Visiting iXORA Solution</h4>
+                            <p>We visited iXORA Solution for an industrial tour, where we gained valuable experience as CSE students. We learned about software and website development, client management, and how an IT company operates professionally. Special thanks to MD Ziaur Rahman for his excellent guidance and inspiring explanation throughout the session.</p>
+                            <div class="journey-timeline-image">
+                                <img src="images/GP-1.jpeg" alt="2026 Journey">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOBBIES SECTION -->
+    <section class="section hobbies" id="hobbies">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">My <span class="text-gradient">Hobbies</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="hobbies-grid">
+                <div class="hobby-card reveal reveal-up">
+                    <div class="hobby-icon"><i class="fas fa-code"></i></div>
+                    <h3>Coding</h3>
+                    <p>Building side projects and exploring new programming languages.</p>
+                </div>
+                <div class="hobby-card reveal reveal-up">
+                    <div class="hobby-icon"><i class="fas fa-gamepad"></i></div>
+                    <h3>Gaming</h3>
+                    <p>Strategic games that sharpen problem-solving and decision-making.</p>
+                </div>
+                <div class="hobby-card reveal reveal-up">
+                    <div class="hobby-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Technology</h3>
+                    <p>Following the latest tech trends, gadgets, and innovations.</p>
+                </div>
+                <div class="hobby-card reveal reveal-up">
+                    <div class="hobby-icon"><i class="fas fa-pen-nib"></i></div>
+                    <h3>Designing</h3>
+                    <p>Creating visual designs, wireframes, and digital artwork.</p>
+                </div>
+                <div class="hobby-card reveal reveal-up">
+                    <div class="hobby-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Learning</h3>
+                    <p>Continuously learning new technologies and frameworks.</p>
+                </div>
+                <div class="hobby-card reveal reveal-up">
+                    <div class="hobby-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Problem Solving</h3>
+                    <p>Tackling creative challenges and algorithmic puzzles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL MEDIA SECTION -->
+    <section class="section social" id="social">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Connect <span class="text-gradient">With Me</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="social-grid">
+                <a href="https://facebook.com/nix.return.12" class="social-card reveal reveal-up" style="--accent: #1877F2;" target="_blank" rel="noopener">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                    <small>nix.return.12</small>
+                </a>
+                <a href="https://github.com/MySelf-Sazzad" class="social-card reveal reveal-up" style="--accent: #ffffff;" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                    <small>MySelf-Sazzad</small>
+                </a>
+                <a href="https://linkedin.com/in/" class="social-card reveal reveal-up" style="--accent: #0A66C2;" target="_blank" rel="noopener">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>LinkedIn</span>
+                    <small>linkedin.com/in</small>
+                </a>
+                <a href="https://instagram.com/_sazzad_m_rahman_/" class="social-card reveal reveal-up" style="--accent: #E4405F;" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                    <small>_sazzad_m_rahman_/</small>
+                </a>
+                <a href="https://youtube.com/@nixgaming9728" class="social-card reveal reveal-up" style="--accent: #FF0000;" target="_blank" rel="noopener">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                    <small>@nixgaming9728</small>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Get In <span class="text-gradient">Touch</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal reveal-left">
+                    <h3>Let's work together</h3>
+                    <p>Have a project in mind or want to collaborate? I'd love to hear from you. Drop me a message and I'll get back to you as soon as possible.</p>
+                    <div class="contact-cards">
+                        <div class="contact-card-item">
+                            <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <span>sazzad.m.rahman.nix@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-card-item">
+                            <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h4>Phone</h4>
+                                <span>+880 1631650688</span>
+                            </div>
+                        </div>
+                        <div class="contact-card-item">
+                            <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4>Location</h4>
+                                <span>Dhaka, Bangladesh</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <div class="map-inner">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Dhaka, Bangladesh</span>
+                            <small>Interactive map coming soon</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper reveal reveal-right">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Your Name</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Your Email</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                            <label for="message">Your Message</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary magnetic-btn btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                        <div class="form-status" id="formStatus"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="nav-logo">
+                        <span class="logo-bracket">&lt;</span>Sazzad<span class="logo-slash">/</span><span class="logo-bracket">&gt;</span>
+                    </a>
+                    <p>Crafting digital experiences with clean code and modern design.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/nix.return.12" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://github.com/MySelf-Sazzad" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/_sazzad_m_rahman_/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@nixgaming9728" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>More</h4>
+                    <ul>
+                        <li><a href="#blogs">Blogs</a></li>
+                        <li><a href="#hobbies">Hobbies</a></li>
+                        <li><a href="#social">Social</a></li>
+                        <li><a href="#">Download CV</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to get updates on my latest projects and blog posts.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sazzad M Rahman. All rights reserved.</p>
+                <p class="footer-signature">Designed &amp; Developed by <span class="text-gradient">Sazzad M Rahman</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -24,10 +24,24 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Hero image: highest priority, needed for first paint -->
+    <link rel="preload" as="image" href="images/MYP-Main.jpeg" fetchpriority="high">
+
+    <!-- Fonts & icons: loaded without blocking the page render -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </noscript>
+
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
 </head>
 <body>
 
@@ -120,7 +134,7 @@
             <div class="hero-image reveal reveal-delay-3">
                 <div class="image-frame">
                     <div class="image-frame-border"></div>
-                    <img src="images/MYP-Main.jpeg" alt="Sazzad M Rahman" class="profile-img">
+                    <img src="images/MYP-Main.jpeg" alt="Sazzad M Rahman" class="profile-img" fetchpriority="high" decoding="async">
                     <div class="image-glow"></div>
                 </div>
             </div>
@@ -395,7 +409,7 @@
             <div class="project-grid">
                 <div class="project-card reveal reveal-up" data-category="fullstack">
                     <div class="project-image">
-                        <img src="images/EMW-1.jpeg" alt="E-Commerce Platform">
+                        <img loading="lazy" decoding="async" src="images/EMW-1.jpeg" alt="E-Commerce Platform">
                         <div class="project-overlay">
                             <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
                             <a href="#" class="project-link"><i class="fab fa-github"></i></a>
@@ -411,7 +425,7 @@
                 </div>
                 <div class="project-card reveal reveal-up" data-category="web">
                     <div class="project-image">
-                        <img src="images/WEB-2.jpeg" alt="Portfolio Website">
+                        <img loading="lazy" decoding="async" src="images/WEB-2.jpeg" alt="Portfolio Website">
                         <div class="project-overlay">
                             <a href="http://sazzadmrahman.vercel.app/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
                             <a href="#" class="project-link"><i class="fab fa-github"></i></a>
@@ -427,7 +441,7 @@
                 </div>
                 <div class="project-card reveal reveal-up" data-category="fullstack">
                     <div class="project-image">
-                        <img src="images/WEB-1.jpeg" alt="Blood Management System">
+                        <img loading="lazy" decoding="async" src="images/WEB-1.jpeg" alt="Blood Management System">
                         <div class="project-overlay">
                             <a href="https://amidonor.vercel.app/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
                             <a href="#" class="project-link"><i class="fab fa-github"></i></a>
@@ -443,7 +457,7 @@
                 </div>
                 <div class="project-card reveal reveal-up" data-category="web">
                     <div class="project-image">
-                        <img src="images/WEB-3.png" alt="Portfolio (Samia Zabed)">
+                        <img loading="lazy" decoding="async" src="images/WEB-3.png" alt="Portfolio (Samia Zabed)">
                         <div class="project-overlay">
                             <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
                             <a href="#" class="project-link"><i class="fab fa-github"></i></a>
@@ -459,7 +473,7 @@
                 </div>
                 <div class="project-card reveal reveal-up" data-category="fullstack">
                     <div class="project-image">
-                        <img src="GBD-1.png" alt="E-Commerce Platform">
+                        <img loading="lazy" decoding="async" src="GBD-1.png" alt="E-Commerce Platform">
                         <div class="project-overlay">
                             <a href="https://gadgets-bd-cs.vercel.app/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
                             <a href="#" class="project-link"><i class="fab fa-github"></i></a>
@@ -475,7 +489,7 @@
                 </div>
                 <div class="project-card reveal reveal-up" data-category="fullstack">
                     <div class="project-image">
-                        <img src="FG-1.png" alt="E-Commerce Platform">
+                        <img loading="lazy" decoding="async" src="FG-1.png" alt="E-Commerce Platform">
                         <div class="project-overlay">
                             <a href="https://fashion-garage.vercel.app/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
                             <a href="#" class="project-link"><i class="fab fa-github"></i></a>
@@ -503,7 +517,7 @@
             <div class="blog-grid blog-grid-2">
                 <article class="blog-card reveal reveal-up" onclick="openProjectModal()">
                     <div class="blog-image">
-                        <img src="images/BP-1.png" alt="Development">
+                        <img loading="lazy" decoding="async" src="images/BP-1.png" alt="Development">
                         <span class="blog-category">Development</span>
                     </div>
                     <div class="blog-content">
@@ -518,7 +532,7 @@
 
                 <article class="blog-card reveal reveal-up" onclick="openJourneyModal()">
                     <div class="blog-image">
-                        <img src="images/MJ-1.png" alt="My Journey">
+                        <img loading="lazy" decoding="async" src="images/MJ-1.png" alt="My Journey">
                         <span class="blog-category">My Journey</span>
                     </div>
                     <div class="blog-content">
@@ -548,7 +562,7 @@
             <div class="detail-modal-body">
                 <div class="detail-project-item">
                     <div class="detail-project-image">
-                        <img src="images/EMW-1.jpeg" alt="E-Commerce Platform">
+                        <img loading="lazy" decoding="async" src="images/EMW-1.jpeg" alt="E-Commerce Platform">
                     </div>
                     <div class="detail-project-info">
                         <span class="detail-project-tag">Full Stack</span>
@@ -573,7 +587,7 @@
 
                 <div class="detail-project-item detail-project-reverse">
                     <div class="detail-project-image">
-                        <img src="images/WEB-2.jpeg" alt="Portfolio Website">
+                        <img loading="lazy" decoding="async" src="images/WEB-2.jpeg" alt="Portfolio Website">
                     </div>
                     <div class="detail-project-info">
                         <span class="detail-project-tag">Web Development</span>
@@ -598,7 +612,7 @@
 
                 <div class="detail-project-item">
                     <div class="detail-project-image">
-                        <img src="images/WEB-1.jpeg" alt="Blood Management System">
+                        <img loading="lazy" decoding="async" src="images/WEB-1.jpeg" alt="Blood Management System">
                     </div>
                     <div class="detail-project-info">
                         <span class="detail-project-tag">Full Stack</span>
@@ -622,7 +636,7 @@
                 </div>
     <div class="detail-project-item detail-project-reverse">
     <div class="detail-project-image">
-        <img src="images/WEB-3.png" alt="Portfolio (Samia Zabed)">
+        <img loading="lazy" decoding="async" src="images/WEB-3.png" alt="Portfolio (Samia Zabed)">
     </div>
     <div class="detail-project-info">
         <span class="detail-project-tag">Web Development</span>
@@ -646,7 +660,7 @@
 </div>
 <div class="detail-project-item">
     <div class="detail-project-image">
-        <img src="GBD-1.png" alt="E-Commerce GadgetsBD">
+        <img loading="lazy" decoding="async" src="GBD-1.png" alt="E-Commerce GadgetsBD">
     </div>
     <div class="detail-project-info">
         <span class="detail-project-tag">Web Development</span>
@@ -671,7 +685,7 @@
 </div>
 <div class="detail-project-item detail-project-reverse">
     <div class="detail-project-image">
-        <img src="FG-1.png" alt="E-Commerce Platform">
+        <img loading="lazy" decoding="async" src="FG-1.png" alt="E-Commerce Platform">
     </div>
     <div class="detail-project-info">
         <span class="detail-project-tag">Web Development</span>
@@ -711,7 +725,7 @@
             <div class="detail-modal-body">
                 <div class="journey-hero">
                     <div class="journey-hero-image">
-                        <img src="images/MP-1.png" alt="Sazzad M Rahman">
+                        <img loading="lazy" decoding="async" src="images/MP-1.png" alt="Sazzad M Rahman">
                     </div>
                     <div class="journey-hero-info">
                         <h3>Sazzad M Rahman</h3>
@@ -722,7 +736,7 @@
 
                 <div class="journey-section">
                     <div class="journey-section-image">
-                        <img src="images/University.png" alt="UITS">
+                        <img loading="lazy" decoding="async" src="images/University.png" alt="UITS">
                     </div>
                     <div class="journey-section-info">
                         <span class="detail-project-tag">Education</span>
@@ -755,7 +769,7 @@
                             <h4>The Beginning — Starting CSE Journey</h4>
                             <p>I enrolled at UITS in the Computer Science & Engineering program. This was the turning point of my life. I had always been curious about technology, but now I was going to learn it properly. I started with the basics — programming fundamentals, C programming, and introductory computer science courses. It was challenging but exciting at the same time. I spent countless hours understanding logic, algorithms, and how computers actually work.</p>
                             <div class="journey-timeline-image">
-                                <img src="images/CSE-J.png" alt="2023 Journey">
+                                <img loading="lazy" decoding="async" src="images/CSE-J.png" alt="2023 Journey">
                             </div>
                         </div>
                     </div>
@@ -767,7 +781,7 @@
                             <h4>Learning Web Development</h4>
                             <p>This was the year I discovered my passion for web development. I started learning HTML, CSS, and JavaScript. I spent months practicing, building small projects, and understanding how the web works. Then I moved to backend development with PHP and MySQL. I also started using GitHub for version control and VS Code as my primary IDE. By the end of 2023, I could build complete websites with both frontend and backend.</p>
                             <div class="journey-timeline-image">
-                                <img src="images/MYJ-2.png" alt="2024 Journey">
+                                <img loading="lazy" decoding="async" src="images/MYJ-2.png" alt="2024 Journey">
                             </div>
                         </div>
                     </div>
@@ -778,7 +792,7 @@
                             <h4>Visiting iXORA Solution</h4>
                             <p>We visited iXORA Solution for an industrial tour, where we gained valuable experience as CSE students. We learned about software and website development, client management, and how an IT company operates professionally. Special thanks to MD Ziaur Rahman for his excellent guidance and inspiring explanation throughout the session.</p>
                             <div class="journey-timeline-image">
-                                <img src="images/GP-1.jpeg" alt="2026 Journey">
+                                <img loading="lazy" decoding="async" src="images/GP-1.jpeg" alt="2026 Journey">
                             </div>
                         </div>
                     </div>
@@ -994,6 +1008,6 @@
     </button>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

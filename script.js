@@ -1,14 +1,33 @@
 /* ============================================
    PRELOADER
    ============================================ */
-window.addEventListener('load', () => {
+// .preloader-bar-fill's animation runs for 2s (see style.css) — we wait for
+// that same duration OR the real page load, whichever is LONGER, so the
+// "Initializing" animation always finishes before the page reveals, but we
+// never add extra artificial delay on top of an already-slow load.
+const PRELOADER_MIN_MS = 2000;
+const preloaderStart = performance.now();
+let preloaderHidden = false;
+
+function hidePreloader() {
+    if (preloaderHidden) return;
+    preloaderHidden = true;
     const preloader = document.getElementById('preloader');
-    setTimeout(() => {
-        preloader.classList.add('hidden');
-        document.body.style.overflow = '';
-        triggerInitialReveals();
-    }, 2200);
+    if (!preloader) return;
+    preloader.classList.add('hidden');
+    document.body.style.overflow = '';
+    triggerInitialReveals();
+}
+
+window.addEventListener('load', () => {
+    const elapsed = performance.now() - preloaderStart;
+    const remaining = Math.max(0, PRELOADER_MIN_MS - elapsed);
+    setTimeout(hidePreloader, remaining);
 });
+
+// Safety net: never let the preloader get stuck if 'load' is delayed
+// by a slow third-party resource.
+setTimeout(hidePreloader, 6000);
 
 function triggerInitialReveals() {
     const heroReveals = document.querySelectorAll('.hero .reveal');

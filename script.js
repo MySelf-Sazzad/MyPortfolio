@@ -391,14 +391,17 @@ function animateCounter(el, target) {
    ============================================ */
 const skillBars = document.querySelectorAll('.skill-bar-fill');
 
+skillBars.forEach(el => {
+    el.style.setProperty('--skill-width', `${el.dataset.width}%`);
+});
+
 const skillObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const el = entry.target;
-            const width = el.getAttribute('data-width');
-            setTimeout(() => {
-                el.style.width = width + '%';
-            }, 200);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => el.classList.add('is-animated'));
+            });
             skillObserver.unobserve(el);
         }
     });

@@ -423,7 +423,10 @@ filterBtns.forEach(btn => {
             const category = card.getAttribute('data-category');
             if (filter === 'all' || category === filter) {
                 card.classList.remove('hidden');
-                card.style.animation = 'fadeInUp 0.5s ease forwards';
+                card.animate(
+                    [{ opacity: 0 }, { opacity: 1 }],
+                    { duration: 350, easing: 'ease-out' }
+                );
             } else {
                 card.classList.add('hidden');
             }
@@ -581,19 +584,26 @@ window.addEventListener('mousemove', (e) => {
 const tiltCards = document.querySelectorAll('.project-card');
 
 tiltCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
+    let tiltFrame;
+
+    card.addEventListener('pointermove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / centerY * -5;
-        const rotateY = (x - centerX) / centerX * 5;
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+        const rotateX = ((y - centerY) / centerY) * -3.5;
+        const rotateY = ((x - centerX) / centerX) * 3.5;
+
+        cancelAnimationFrame(tiltFrame);
+        tiltFrame = requestAnimationFrame(() => {
+            card.style.transform = `perspective(1200px) translateY(-5px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
     });
 
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+    card.addEventListener('pointerleave', () => {
+        cancelAnimationFrame(tiltFrame);
+        card.style.transform = 'perspective(1200px) translateY(0) rotateX(0) rotateY(0)';
     });
 });
 

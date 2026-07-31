@@ -1142,7 +1142,18 @@ ul { list-style: none; }
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    perspective: 1200px;
 }
+
+.project-card[data-project="world-tour"] { order: 1; }
+.project-card[data-project="rizq-foods"] { order: 2; }
+.project-card[data-project="pizzaburg"] { order: 3; }
+.project-card[data-project="fashion-garage"] { order: 4; }
+.project-card[data-project="gadgets-bd"] { order: 5; }
+.project-card[data-project="restaurant-pos"] { order: 6; }
+.project-card[data-project="blood-management"] { order: 7; }
+.project-card[data-project="portfolio-main"] { order: 8; }
+.project-card[data-project="portfolio-samia"] { order: 9; }
 
 .project-card {
     background: var(--bg-card);
@@ -1151,7 +1162,24 @@ ul { list-style: none; }
     overflow: hidden;
     transition: all var(--transition-normal);
     position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
 }
+
+#projectModal .detail-modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+#projectModal .detail-project-item[data-project="world-tour"] { order: 1; }
+#projectModal .detail-project-item[data-project="rizq-foods"] { order: 2; }
+#projectModal .detail-project-item[data-project="pizzaburg"] { order: 3; }
+#projectModal .detail-project-item[data-project="fashion-garage"] { order: 4; }
+#projectModal .detail-project-item[data-project="gadgets-bd"] { order: 5; }
+#projectModal .detail-project-item[data-project="restaurant-pos"] { order: 6; }
+#projectModal .detail-project-item[data-project="blood-management"] { order: 7; }
+#projectModal .detail-project-item[data-project="portfolio-main"] { order: 8; }
+#projectModal .detail-project-item[data-project="portfolio-samia"] { order: 9; }
 
 .project-card::before {
     content: '';
@@ -1195,8 +1223,21 @@ ul { list-style: none; }
     transition: transform var(--transition-slow);
 }
 
+.project-card[data-project="pizzaburg"] .project-image {
+    background: #f8f6f1;
+}
+
+.project-card[data-project="pizzaburg"] .project-image img {
+    object-fit: contain;
+    object-position: center;
+}
+
 .project-card:hover .project-image img {
     transform: scale(1.1);
+}
+
+.project-card[data-project="pizzaburg"]:hover .project-image img {
+    transform: scale(1);
 }
 
 .project-overlay {
@@ -2152,6 +2193,10 @@ ul { list-style: none; }
 }
 
 .detail-project-item:last-child { margin-bottom: 0; }
+
+/* The project modal uses a curated visual order instead of source order. */
+#projectModal .detail-project-item:last-child { margin-bottom: 80px; }
+#projectModal .detail-project-item[data-project="portfolio-samia"] { margin-bottom: 0; }
 
 .detail-project-reverse .detail-project-image { order: 2; }
 .detail-project-reverse .detail-project-info { order: 1; }

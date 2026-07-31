@@ -1225,6 +1225,8 @@ ul { list-style: none; }
 
 .project-card[data-project="pizzaburg"] .project-image {
     background: #f8f6f1;
+    height: auto;
+    aspect-ratio: 1536 / 730;
 }
 
 .project-card[data-project="pizzaburg"] .project-image img {
@@ -1238,6 +1240,15 @@ ul { list-style: none; }
 
 .project-card[data-project="pizzaburg"]:hover .project-image img {
     transform: scale(1);
+}
+
+#projectModal .detail-project-item[data-project="pizzaburg"] .detail-project-image {
+    background: #f8f6f1;
+}
+
+#projectModal .detail-project-item[data-project="pizzaburg"] .detail-project-image img {
+    object-fit: contain;
+    object-position: center;
 }
 
 .project-overlay {

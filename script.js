@@ -1,12 +1,8 @@
 /* ============================================
    PRELOADER
    ============================================ */
-// .preloader-bar-fill's animation runs for 2s (see style.css) — we wait for
-// that same duration OR the real page load, whichever is LONGER, so the
-// "Initializing" animation always finishes before the page reveals, but we
-// never add extra artificial delay on top of an already-slow load.
-const PRELOADER_MIN_MS = 2000;
-const preloaderStart = performance.now();
+// Never make first paint wait for images, fonts, or third-party scripts.
+const PRELOADER_MIN_MS = 250;
 let preloaderHidden = false;
 
 function hidePreloader() {
@@ -19,20 +15,21 @@ function hidePreloader() {
     triggerInitialReveals();
 }
 
-window.addEventListener('load', () => {
-    const elapsed = performance.now() - preloaderStart;
-    const remaining = Math.max(0, PRELOADER_MIN_MS - elapsed);
-    setTimeout(hidePreloader, remaining);
-});
-
-// Safety net: never let the preloader get stuck if 'load' is delayed
-// by a slow third-party resource.
-setTimeout(hidePreloader, 6000);
+setTimeout(hidePreloader, PRELOADER_MIN_MS);
 
 function triggerInitialReveals() {
     const heroReveals = document.querySelectorAll('.hero .reveal');
     heroReveals.forEach(el => el.classList.add('revealed'));
 }
+
+// AVIF is used first for the smallest downloads; older browsers receive WebP.
+document.querySelectorAll('img[src$=".avif"]').forEach((image) => {
+    image.addEventListener('error', () => {
+        if (image.dataset.webpFallback) return;
+        image.dataset.webpFallback = 'true';
+        image.src = image.src.replace(/\.avif$/, '.webp');
+    });
+});
 
 /* ============================================
    CUSTOM CURSOR
@@ -199,7 +196,9 @@ setTimeout(typeEffect, 2500);
 const canvas = document.getElementById('particlesCanvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
-const particleCount = 70;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const shouldAnimateBackground = !prefersReducedMotion.matches && !navigator.connection?.saveData;
+const particleCount = window.matchMedia('(max-width: 768px)').matches ? 22 : 38;
 const connectionDistance = 150;
 let particleMouseX = 0, particleMouseY = 0;
 
@@ -233,7 +232,7 @@ class Particle {
         const dx = this.x - particleMouseX;
         const dy = this.y - particleMouseY;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
+        if (dist > 0.1 && dist < 120) {
             const force = (120 - dist) / 120;
             this.x += (dx / dist) * force * 1.5;
             this.y += (dy / dist) * force * 1.5;
@@ -251,10 +250,6 @@ class Particle {
         ctx.fillStyle = `rgba(0, 240, 255, ${this.opacity})`;
         ctx.fill();
     }
-}
-
-for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
 }
 
 function drawConnections() {
@@ -276,17 +271,30 @@ function drawConnections() {
     }
 }
 
+let particleFrame;
 function animateParticles() {
+    if (document.hidden) {
+        particleFrame = undefined;
+        return;
+    }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach(p => {
         p.update();
         p.draw();
     });
     drawConnections();
-    requestAnimationFrame(animateParticles);
+    particleFrame = requestAnimationFrame(animateParticles);
 }
 
-animateParticles();
+if (shouldAnimateBackground) {
+    for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+    animateParticles();
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && !particleFrame) animateParticles();
+    });
+} else {
+    canvas.style.display = 'none';
+}
 
 /* ============================================
    FLOATING CODE LINES
@@ -326,11 +334,14 @@ function createCodeLine() {
     }, duration + 1000);
 }
 
-for (let i = 0; i < 15; i++) {
-    createCodeLine();
+if (shouldAnimateBackground) {
+    for (let i = 0; i < 8; i++) createCodeLine();
+    setInterval(() => {
+        if (!document.hidden) createCodeLine();
+    }, 5000);
+} else {
+    codeLinesContainer.style.display = 'none';
 }
-
-setInterval(createCodeLine, 3000);
 
 /* ============================================
    SCROLL REVEAL (IntersectionObserver)
@@ -485,17 +496,30 @@ backToTop.addEventListener('click', () => {
    EMAILJS SETUP - REAL EMAIL SENDING
    ============================================*/
    
-// 1. Replace with your EmailJS Public Key
-emailjs.init("sPytOBlIL5Bs8rJlf");
-
-// 2. Replace with your EmailJS Service ID (e.g. service_abc123xyz)
+const EMAILJS_PUBLIC_KEY = "sPytOBlIL5Bs8rJlf";
 const EMAILJS_SERVICE_ID = "service_sazzad";
-
-// 3. Replace with your EmailJS Template ID (e.g. template_abc123xyz)
 const EMAILJS_TEMPLATE_ID = "template_htgfkcb";
-
-// Your email address where messages will be received
 const RECIPIENT_EMAIL = "sazzad.m.rahman.nix@gmail.com";
+let emailJsLoader;
+
+function loadEmailJs() {
+    if (window.emailjs) return Promise.resolve(window.emailjs);
+    if (emailJsLoader) return emailJsLoader;
+
+    emailJsLoader = new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+        script.async = true;
+        script.onload = () => {
+            window.emailjs.init(EMAILJS_PUBLIC_KEY);
+            resolve(window.emailjs);
+        };
+        script.onerror = () => reject(new Error('Email service could not be loaded'));
+        document.head.appendChild(script);
+    });
+
+    return emailJsLoader;
+}
 
 /* ============================================
    CONTACT FORM - SENDS REAL EMAIL
@@ -535,14 +559,14 @@ contactForm.addEventListener('submit', (e) => {
 
     // Send real email via EmailJS
     // These variables map to {{from_name}}, {{from_email}}, {{message}} in your template
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    loadEmailJs().then(() => emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         from_name: name,
         from_email: email,
         message: message,
         to_name: "Sazzad M Rahman",
         to_email: RECIPIENT_EMAIL,
         reply_to: email
-    })
+    }))
     .then(function(response) {
         // Success - email has been sent to your inbox
         console.log('Email sent successfully!', response.status, response.text);
